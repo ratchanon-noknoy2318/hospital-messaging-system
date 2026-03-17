@@ -1,76 +1,147 @@
 # LINE Hospital Integration
 
-Integration service connecting a hospital system with a LINE Official Account to automate patient interactions.
+Webhook-based integration service connecting hospital systems with LINE Official Account to automate patient communication and service access.
 
-The system uses the LINE Messaging API to handle patient requests, deliver automated responses, and provide access to hospital services through structured messaging interfaces.
+Enables structured, automated patient interactions through messaging workflows in real-world healthcare environments.
+
+---
+
+## Impact
+
+* Automated patient messaging workflows, reducing manual response workload
+* Improved response time for common patient requests
+* Enabled scalable patient communication through LINE platform
+* Provided structured access to hospital services via messaging interface
+* Used in real-world healthcare operations
 
 ---
 
 ## Problem
 
-Hospital staff previously handled many patient requests manually through messaging channels, including:
+Hospital staff previously handled patient requests manually through messaging channels, including:
 
-- appointment inquiries
-- telemedicine access
-- hospital information requests
+* Appointment inquiries
+* Telemedicine access requests
+* General hospital information
 
-This created administrative overhead and slow response times.
+This resulted in:
+
+* High administrative workload
+* Slow response times
+* Inconsistent communication quality
+* Limited scalability of patient support
 
 ---
 
 ## Solution
 
-This project implements a webhook-based integration that:
+Designed and implemented a webhook-based integration system:
 
-- connects LINE Official Account to backend services
-- handles incoming patient messages
-- delivers structured responses using Flex Messages
-- exposes hospital services through Rich Menu navigation
-
-The system enables automated patient workflows and improves accessibility to hospital services.
+* Connected LINE Official Account to backend services
+* Handled incoming patient messages via webhook endpoint
+* Delivered structured responses using Flex Messages
+* Provided service navigation via Rich Menu interface
+* Enabled automated patient workflows for common use cases
 
 ---
 
 ## Architecture
 
+Message flow:
+
+```id="line_arch"
+[Patient]
+    ↓
+[LINE Official Account]
+    ↓
+[Webhook (Node.js)]
+    ↓
+[Message Processing Logic]
+    ↓
+[Flex Message Response]
 ```
-Patient
-↓
-LINE Official Account
-↓
-Webhook (Node.js)
-↓
-Flex Message Response
-```
+
+### Key Considerations
+
+* Designed for **high-frequency messaging scenarios**
+* Ensured consistent and structured responses
+* Optimized for usability via messaging interface
+* Integrated seamlessly with existing hospital workflows
 
 ---
 
-## Tech Stack
+## Technical Highlights
 
-- Node.js
-- JavaScript
-- LINE Messaging API
-- Flex Messages (JSON)
-
----
-
-## Project Structure
-
-```
-flex_message/   JSON templates for structured message responses
-push_message/   outbound messaging and notification logic
-richmenu/       configuration and assets for LINE Rich Menu
-route.js        webhook entry point and request routing
-```
+* Webhook-based event handling for real-time message processing
+* Structured message design using LINE Flex Messages (JSON)
+* Integration with external messaging platform (LINE API)
+* Modular handling of different message types and workflows
 
 ---
 
 ## Features
 
-- automated patient messaging workflows
-- structured responses using Flex Messages
-- service navigation via LINE Rich Menu
-- webhook-based service integration
+* Automated patient messaging workflows
+* Structured responses using Flex Messages
+* Service navigation via LINE Rich Menu
+* Webhook-based system integration
+
+---
+
+## Tech Stack
+
+* Node.js
+* JavaScript
+* LINE Messaging API
+* Flex Messages (JSON)
+
+---
+
+## Project Structure
+
+```id="line_struct"
+flex_message/   JSON templates for structured responses  
+push_message/   outbound messaging and notification logic  
+richmenu/       configuration and assets for LINE Rich Menu  
+route.js        webhook entry point and request routing  
+```
+
+---
+
+## Design Decisions
+
+* **Webhook-based architecture**
+
+  * Enables real-time handling of incoming patient messages
+  * Scales naturally with messaging volume
+
+* **Structured messaging (Flex Messages)**
+
+  * Ensures consistent UI/UX for patients
+  * Supports complex interaction flows
+
+* **Rich Menu navigation**
+
+  * Simplifies access to hospital services
+  * Reduces friction for non-technical users
+
+---
+
+## Challenges
+
+* Designing structured message flows within messaging constraints
+* Handling diverse patient requests through limited UI
+* Ensuring consistent response behavior across different scenarios
+* Integrating messaging workflows with existing hospital services
+
+---
+
+## Future Improvements
+
+* Add user state management for multi-step workflows
+* Integrate authentication for personalized services
+* Expand service coverage (appointments, records, notifications)
+* Improve monitoring and logging for message flows
 
 ---
 
