@@ -1,5 +1,3 @@
-// app/webhook/route.js
-
 import { Client, validateSignature } from "@line/bot-sdk"; // นำเข้า SDK ของ LINE
 import { NextResponse } from 'next/server';
 
